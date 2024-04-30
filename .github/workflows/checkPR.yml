@@ -9,6 +9,10 @@ jobs:
         steps:
             - name: Enviar archivo
               uses: actions/checkout@v4 
+
+            - name: installar dependecias
+              run:  npm i 
+                
             - name: installar prettier 
               run:  npm i prettier 
             - name: Correr check prettier 
