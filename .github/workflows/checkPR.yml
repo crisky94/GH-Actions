@@ -1,4 +1,4 @@
-name: Check Pull Request
+name: Check Prettier
 
 on: [ pull_request ]
 
@@ -7,4 +7,7 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - run: echo "Corrio el check"
+            - name: Enviar archivos
+              uses: actions/checkout@v4 
+            - name: Correr check prettier 
+              run:  npx prettier. --check
