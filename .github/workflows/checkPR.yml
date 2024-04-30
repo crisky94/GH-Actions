@@ -7,7 +7,7 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Enviar archivos
+            - name: Enviar archivo
               uses: actions/checkout@v4 
             - name: Correr check prettier 
-              run:  npx prettier. --check
+              run:  npx prettier . --check
