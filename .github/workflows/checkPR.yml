@@ -1,19 +1,26 @@
 name: Check Prettier
 
-on: [ pull_request ]
+on: [pull_request]
 
 jobs:
-    chequear:
-        runs-on: ubuntu-latest
+  chequear:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Enviar archivo
-              uses: actions/checkout@v4 
+    steps:
+      # 1. Checkout del código del repositorio
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4 
 
-            - name: installar dependecias
-              run:  npm i 
-                
-            - name: installar prettier 
-              run:  npm i prettier 
-            - name: Correr check prettier 
-              run:  npx prettier . --check
+      # 2. Configurar Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Cambiar por la versión deseada
+
+      # 3. Instalar dependencias
+      - name: Instalar dependencias
+        run: npm ci
+
+      # 4. Ejecutar Prettier para verificar el formato del código
+      - name: Verificar formato con Prettier
+        run: npx prettier . --check
