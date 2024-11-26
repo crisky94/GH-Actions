@@ -20,7 +20,9 @@ jobs:
       # 3. Instalar dependencias
       - name: Instalar dependencias
         run: npm ci
-
-      # 4. Ejecutar Prettier para verificar el formato del código
+      # 4. Ejecutar Prettier para Formatear archivos
+      - name: Formatear archivos
+        run: npx prettier . --write
+      # 5. Ejecutar Prettier para verificar el formato del código
       - name: Verificar formato con Prettier
         run: npx prettier . --check
